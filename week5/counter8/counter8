@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# GPIO 핀 (왼쪽부터 오른쪽 순서로, MSB부터 LSB)
+LEDS=(17 27 22)
+CHIP=gpiochip0
+
+# 무한 반복
+while true; do
+    # 0부터 7까지 카운트
+    for i in {0..7}; do
+        # i를 3비트 이진수 문자열로 변환
+        bin=$(printf "%03d" "$(echo "obase=2;$i" | bc)")
+
+        # LED 설정
+        for j in {0..2}; do
+            bit=${bin:$j:1}
+            gpioset $CHIP ${LEDS[$j]}=$bit
+        done
+
+        sleep 1
+    done
+done

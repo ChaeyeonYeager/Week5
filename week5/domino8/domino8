@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# 사용할 GPIO 핀들 (순서대로 점등)
+PINS=(17 27 22 5)
+CHIP=gpiochip0
+
+# 무한 반복
+while true; do
+    for PIN in "${PINS[@]}"; do
+        # 현재 핀 ON
+        gpioset $CHIP $PIN=1
+        sleep 1
+        # 현재 핀 OFF
+        gpioset $CHIP $PIN=0
+    done
+done
