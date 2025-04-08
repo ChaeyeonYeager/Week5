@@ -4,13 +4,20 @@
 PINS=(17 27 22 5)
 CHIP=gpiochip0
 
+# 모든 핀을 초기화 (OFF)
+for PIN in "${PINS[@]}"; do
+    gpioset $CHIP $PIN=0
+done
+
 # 무한 반복
 while true; do
     for PIN in "${PINS[@]}"; do
-        # 현재 핀 ON
+        # 모든 핀 OFF 후 하나만 ON
+        for ALLPIN in "${PINS[@]}"; do
+            gpioset $CHIP $ALLPIN=0
+        done
         gpioset $CHIP $PIN=1
         sleep 1
-        # 현재 핀 OFF
         gpioset $CHIP $PIN=0
     done
 done
