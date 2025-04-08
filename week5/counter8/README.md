@@ -1,10 +1,13 @@
 # Raspberry Pi 3비트 이진수 LED 카운터
 
+
+유튜브 시연 영상: https://youtu.be/za7zLLqj4Lw
+
+
+
 이 프로젝트는 Raspberry Pi의 GPIO 핀을 사용해 3개의 LED를 제어하고,  
 **0부터 7까지 이진수로 표현된 값을 시각적으로 표시**하는 실습입니다.
 
-
-유튜브 시연 영상: https://youtu.be/za7zLLqj4Lw
 
 ---
 
