@@ -7,7 +7,7 @@
 
 ## 🖼 회로 이미지
 
-![LED 회로 구성](week5/image-01.jpg)
+![LED 회로 구성](image-01.jpg)
 
 위 이미지는 실제 구성된 LED 회로입니다. 각 LED는 브레드보드에 배치되어 있으며, Raspberry Pi의 GPIO 핀에 연결되어 있습니다.
 
@@ -45,7 +45,7 @@ pinctrl -p get
 
 ### 출력 예시
 
-![GPIO 상태 확인](week5/image-01.jpg)
+![GPIO 상태 확인](image-01.jpg)
 
 출력에서 다음과 같은 정보가 보이면 LED가 해당 핀에 연결되어 있고, 출력 상태임을 나타냅니다:
 
