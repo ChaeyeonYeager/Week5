@@ -3,6 +3,9 @@
 이 프로젝트는 Raspberry Pi의 GPIO 핀을 이용해 4개의 LED를 순차적으로 제어하는 실습입니다.  
 간단한 회로 구성과 Bash 스크립트를 통해 GPIO 제어 원리를 익힐 수 있습니다.
 
+
+유튜브 시연 영상: https://youtu.be/x0e2hnGxXF0
+
 ---
 
 ## 🖼 회로 이미지
