@@ -17,6 +17,6 @@ while true; do
             gpioset $CHIP ${LEDS[$j]}=$bit
         done
 
-        sleep 1
+        sleep 0.5
     done
 done
