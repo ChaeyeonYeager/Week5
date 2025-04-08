@@ -71,23 +71,28 @@ GPIO5  = output, lo
 ```bash
 #!/bin/bash
 
-# 사용할 GPIO 핀 배열 (LED 연결 순서)
+# 사용할 GPIO 핀들 (순서대로 점등)
 PINS=(17 27 22 5)
-
-# 사용하는 GPIO 칩 이름 (대부분 gpiochip0)
 CHIP=gpiochip0
+
+# 모든 핀을 초기화 (OFF)
+for PIN in "${PINS[@]}"; do
+    gpioset $CHIP $PIN=0
+done
 
 # 무한 반복
 while true; do
     for PIN in "${PINS[@]}"; do
-        # 현재 핀에 HIGH 전압 출력 (LED ON)
+        # 모든 핀 OFF 후 하나만 ON
+        for ALLPIN in "${PINS[@]}"; do
+            gpioset $CHIP $ALLPIN=0
+        done
         gpioset $CHIP $PIN=1
         sleep 1
-        
-        # 다시 LOW로 설정하여 LED OFF
         gpioset $CHIP $PIN=0
     done
 done
+
 ```
 
 ---
@@ -97,12 +102,15 @@ done
 | 코드 라인 | 설명 |
 |-----------|------|
 | `#!/bin/bash` | Bash 스크립트를 나타내는 shebang |
-| `PINS=(17 27 22 5)` | 사용할 GPIO 핀들을 배열로 정의 |
-| `CHIP=gpiochip0` | Raspberry Pi 기본 GPIO 칩 이름 |
-| `while true; do ... done` | 무한 루프를 통해 LED 반복 점등 |
-| `gpioset $CHIP $PIN=1` | 현재 핀에 HIGH 전압을 인가하여 LED를 켬 |
-| `sleep 1` | LED를 1초 동안 켜둠 |
-| `gpioset $CHIP $PIN=0` | 전압을 끄고 LED OFF |
+| `PINS=(17 27 22 5)` | 점등할 GPIO 핀들을 배열로 정의 |
+| `CHIP=gpiochip0` | 사용할 GPIO 컨트롤러 이름 지정 |
+| `for PIN in ...` | 시작 전에 모든 핀을 OFF 상태로 초기화 |
+| `while true; do ... done` | 무한 반복 루프로 점등 동작 실행 |
+| `for PIN in ...` | 핀을 순차적으로 선택하여 점등 |
+| `for ALLPIN in ...` | 루프마다 모든 핀을 먼저 OFF |
+| `gpioset $CHIP $PIN=1` | 현재 선택된 핀을 ON (LED 켜기) |
+| `sleep 1` | LED 점등 상태를 1초 유지 |
+| `gpioset $CHIP $PIN=0` | LED를 끔 |
 
 
 
