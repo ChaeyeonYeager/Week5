@@ -2,7 +2,7 @@
 from gpiozero import LED, Button
 from time import sleep
 
-leds = [LED(pin) for pin in [20, 21, 23, 24]]
+leds = [LED(pin) for pin in [8, 7, 16, 20]]
 btn = Button(25, pull_up=True)
 counter = 0
 
