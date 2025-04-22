@@ -2,7 +2,7 @@
 from gpiozero import LEDBoard, Button
 from signal import pause
 
-leds = LEDBoard(20, 21, 23, 24)
+leds = LEDBoard(8,7,16,20)
 button = Button(25, pull_up=True)
 
 # 버튼 상태가 변할 때마다 LED 켜고 끄기
