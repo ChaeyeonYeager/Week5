@@ -3,7 +3,7 @@
 이 프로젝트는 Raspberry Pi와 `gpiozero`를 사용하여 버튼과 LED를 제어하는 예제 모음입니다. 총 4가지 문제를 통해 다양한 제어 방식을 익힐 수 있습니다.
 
 
-유튜브 링크: https://youtu.be/I0PtPwoj20U
+유튜브 링크: https://youtu.be/FAA_nn0rxEs?feature=shared
 
 ![과제 이미지](../image3.jpeg)
 ---
