@@ -3,7 +3,7 @@ from gpiozero import LED, Button
 from time import sleep
 
 btn = Button(25)
-leds = [LED(p) for p in (20, 21, 23, 24)]
+leds = [LED(p) for p in (8,7,16,20)]
 
 while True:
     btn.wait_for_press()
